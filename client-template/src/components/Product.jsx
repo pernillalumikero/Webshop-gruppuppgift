@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Product = ({product}) => {
   return (
@@ -11,7 +12,7 @@ const Product = ({product}) => {
         <p> {product.price} SEK</p>
         <div>
           <Button $primary>Add to cart</Button>
-          <Button>Read more...</Button>
+          <Button><Link to={"/product/" + product['_id']}>Read more...</Link></Button>
         </div>
       </Wrapper>
     </Article>
@@ -52,7 +53,11 @@ const Button = styled.button `
   padding: 5px;
   border-radius: 5px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 
+ a {
+  all: unset;
+ }
 `
 
 export default Product
