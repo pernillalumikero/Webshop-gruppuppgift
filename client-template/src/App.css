@@ -1,2 +1,5 @@
-
+body {
+    text-transform: uppercase;
+    background-image: url(/client-template/src/assets/shopping.png);
+}
 
