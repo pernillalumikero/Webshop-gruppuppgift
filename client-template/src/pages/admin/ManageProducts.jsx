@@ -7,7 +7,6 @@ const ManageProducts = () => {
   useEffect(() => {
     fetchProducts()
   }, [])
- 
 
 
   const fetchProducts = async () => {
@@ -19,7 +18,6 @@ const ManageProducts = () => {
     console.log(error)
   }
 }
-
 
   return (
     <div>
