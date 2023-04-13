@@ -1,17 +1,21 @@
 .wrapper {
   width: 330px;
   height: 400px;
-  margin-left: 50px;
+  text-align: center;
   background-color: #E9EDC9;
   border-radius: 37% 63% 55% 45% / 67% 52% 48% 33%;
-  position: absolute;
 }
 
 .pictures {
   width: 300px;
   height: 370px;
-  margin-top: 30px;
-  border-radius: 57% 43% 67% 33% / 43% 65% 35% 57% ;
-  position:absolute;
+  margin-top: 10px;
+  border-radius: 67% 52% 48% 33% / 37% 63% 55% 45%;
+  object-fit: cover;
+}
+
+.big-wrapper {
+  display: flex;
+  justify-content: space-around;
 }
 
