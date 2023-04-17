@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Nav = () => {
+
+
+const Nav = ({handleCartClick}) => {
   return (
     <Navigation>
       <section></section>
@@ -12,7 +14,7 @@ const Nav = () => {
       <div>
         <Link to="/admin"><img id="user" src="../src/assets/user.png" alt="Admin log in"/></Link>
         <Link to="/admin">Admin</Link>
-        <Link to="#"><img src="../src/assets/shopping.png" alt="Shopping bag"/></Link>
+        <button onClick={handleCartClick}><img src="../src/assets/shopping.png" alt="Shopping bag"/></button>
       </div>
     </Navigation>
   )
@@ -43,12 +45,17 @@ const Navigation = styled.nav`
     text-transform: uppercase;
     font-family: jost;
     text-decoration: none;
-      img {
-        height: 20px;
-      }
       #user {
         height: 25px;
         position: absolute;
+      }
+  }
+
+  button {
+    all: unset;
+    cursor: pointer;
+    img {
+        height: 20px;
       }
   }
 `

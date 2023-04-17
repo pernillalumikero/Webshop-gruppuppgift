@@ -1,14 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
+import { useOutletContext } from "react-router-dom";
 
 const Product = () => {
   const [product, setProduct] = useState({})
   const params = useParams()
+  const [cart, setCart] = useOutletContext();
 
   useEffect(() => {
     fetchProduct();
   }, [])
+
+  const addProductToCart = (product) => {
+    const index = cart.findIndex((item) => item.id === product.id);
+    console.log(index);
+    if (index === -1) {
+      setCart([...cart, {product, quantity: 1}])
+      console.log(cart)
+      // setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    } else {
+      setCart([...cart, {product, quantity: 1}])
+      console.log(cart)
+      // increaseQuantity(cartItems[index]);
+    }
+  }
 
 
   const fetchProduct = async () => {
@@ -30,7 +46,7 @@ const Product = () => {
           <h1>{product.title}</h1>
           <p id="price">{product.price} sek</p>
         </div>
-        <button>Add to cart</button>
+        <button onClick={() => {addProductToCart(product)}}>Add to cart</button>
         <p id="info">{product.description}</p>
         <div id="stock">
         <b>Stock: &#20;</b> <p> {product.stock}</p>
