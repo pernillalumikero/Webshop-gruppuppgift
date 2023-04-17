@@ -14,9 +14,9 @@ const Header = ({cart, setCart}) => {
     {cartVisible  ? setCartVisible(false) : setCartVisible(true)}
   }
 
-  useEffect(() => {
-    console.log("Running useEffect")
-  })
+  // useEffect(() => {
+  //   console.log("Running useEffect")
+  // })
   
   return (
     <HeaderStyling>
