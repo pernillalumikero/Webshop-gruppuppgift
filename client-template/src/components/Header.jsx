@@ -21,7 +21,7 @@ const Header = ({cart, setCart}) => {
   return (
     <HeaderStyling>
       <Nav handleCartClick={handleCartClick}/>
-      {cartVisible  ? <Cart cart={cart} setCart={setCart}/> : null}
+      {cartVisible  ? <Cart cart={cart} setCart={setCart} handleCartClick={handleCartClick}/> : null}
       
     </HeaderStyling>
   )

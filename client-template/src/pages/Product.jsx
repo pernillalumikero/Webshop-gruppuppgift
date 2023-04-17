@@ -53,7 +53,7 @@ const Product = () => {
       <div id="wrapper">
         <div id="heading">
           <h1>{product.title}</h1>
-          <p id="price">{product.price} sek</p>
+          <p id="price">{product.price}:-</p>
         </div>
         <button onClick={() => {addProductToCart(product)}}>Add to cart</button>
         <p id="info">{product.description}</p>
