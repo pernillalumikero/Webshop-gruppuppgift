@@ -1,13 +1,28 @@
 import React from 'react'
 import Nav from './Nav'
 import styled from 'styled-components'
+import Cart from './Cart'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
-const Header = () => {
+
+
+const Header = ({cart, setCart}) => {
+  const [cartVisible, setCartVisible] = useState(false);
+
+  const handleCartClick = () => {
+    {cartVisible  ? setCartVisible(false) : setCartVisible(true)}
+  }
+
+  useEffect(() => {
+    console.log("Running useEffect")
+  })
+  
   return (
     <HeaderStyling>
-      <nav>
-        <Nav />
-      </nav>
+      <Nav handleCartClick={handleCartClick}/>
+      {cartVisible  ? <Cart cart={cart} setCart={setCart}/> : null}
+      
     </HeaderStyling>
   )
 }

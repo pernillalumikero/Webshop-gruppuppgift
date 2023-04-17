@@ -1,8 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { useOutletContext } from "react-router-dom";
 
 const Product = ({product}) => {
+  const [cart, setCart] = useOutletContext();
+
+
+  const addProductToCart = () => {
+    setCart([...cart, product])
+    console.log(cart)
+  }
+
   return (
     <Article key={product['_id']}>
       <img src={product.image} alt="flowers" />
@@ -11,7 +20,7 @@ const Product = ({product}) => {
         <Line></Line>
         <p> {product.price} SEK</p>
         <div>
-          <Button $primary>Add to cart</Button>
+          <Button $primary onClick={addProductToCart}>Add to cart</Button>
           <Button><Link to={"/product/" + product['_id']}>Read more...</Link></Button>
         </div>
       </Wrapper>
