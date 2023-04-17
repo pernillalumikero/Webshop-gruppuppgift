@@ -36,7 +36,7 @@ const Product = ({product}) => {
       <Wrapper>
         <p>{product.title}</p>
         <Line></Line>
-        <p> {product.price} SEK</p>
+        <p> {product.price}:-</p>
         <div>
           <Button $primary onClick={() => {addProductToCart(product)}}>Add to cart</Button>
           <Button><Link to={"/product/" + product['_id']}>Read more...</Link></Button>

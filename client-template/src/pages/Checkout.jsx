@@ -57,7 +57,7 @@ const Checkout = () => {
         <img src={item.product.image} alt="image" />
         <div>
           <h3>{item.product.title}</h3>
-          <p>{item.product.price} sek</p>
+          <p>{item.product.price}:-</p>
           <div className='count'>
           <button onClick={ () =>{decreaseQuantity(item)}}>-</button>
           <p> {item.quantity}</p>
@@ -67,7 +67,7 @@ const Checkout = () => {
       </Article>
 
     )}
-    <h3>total {total}</h3>
+    <h3>Total {total}:-</h3>
     
     </Checkoutpage>
   )
