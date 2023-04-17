@@ -6,6 +6,7 @@ import Product from './pages/Product'
 import ManageProducts from './pages/admin/ManageProducts'
 import Root from './pages/Root'
 import './index.css'
+import Checkout from './pages/Checkout'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <ManageProducts />
+      },
+
+      {
+        path: "/checkout",
+        element: <Checkout />
       }
     ]
   },

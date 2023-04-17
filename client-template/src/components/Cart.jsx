@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Cart = ({cart, setCart}) => {
 
@@ -31,6 +32,11 @@ const Cart = ({cart, setCart}) => {
           </div>
         </Article>
       )}
+
+<Link to="/checkout"><button>
+  go to checkout
+</button>
+</Link>
 
 
     </Dropdown>
@@ -65,6 +71,7 @@ const Article = styled.article `
     }
   }
   
+
 `
 
 export default Cart
