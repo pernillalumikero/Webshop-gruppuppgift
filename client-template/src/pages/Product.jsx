@@ -13,18 +13,27 @@ const Product = () => {
   }, [])
 
   const addProductToCart = (product) => {
-    const index = cart.findIndex((item) => item.id === product.id);
+    console.log(product);
+    const index = cart.findIndex((item) => item.product._id === product._id);
     console.log(index);
+
     if (index === -1) {
       setCart([...cart, {product, quantity: 1}])
       console.log(cart)
-      // setCartItems([...cartItems, { ...product, quantity: 1 }]);
     } else {
-      setCart([...cart, {product, quantity: 1}])
-      console.log(cart)
-      // increaseQuantity(cartItems[index]);
+      increaseQuantity(cart[index]);
     }
   }
+
+  const increaseQuantity = (product) => {
+    console.log(product)
+    const index = cart.findIndex((item) => item.product._id === product.product._id);
+    console.log(index)
+    const newCartItems = [...cart];
+    console.log(newCartItems)
+    newCartItems[index].quantity++;
+    setCart(newCartItems);
+  };
 
 
   const fetchProduct = async () => {

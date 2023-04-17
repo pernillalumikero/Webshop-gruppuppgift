@@ -8,7 +8,7 @@ const Cart = ({cart, setCart}) => {
     console.log("remove")
     console.log(id);
     
-    setCart(cart.filter(item => id != item['_id']))
+    setCart(cart.filter(item => id != item.product['_id']))
     console.log(cart);
     
   }

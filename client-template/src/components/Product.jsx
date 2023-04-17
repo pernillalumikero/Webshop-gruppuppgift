@@ -7,10 +7,28 @@ const Product = ({product}) => {
   const [cart, setCart] = useOutletContext();
 
 
-  const addProductToCart = () => {
-    setCart([...cart, product])
-    console.log(cart)
+  const addProductToCart = (product) => {
+    console.log(product);
+    const index = cart.findIndex((item) => item.product._id === product._id);
+    console.log(index);
+
+    if (index === -1) {
+      setCart([...cart, {product, quantity: 1}])
+      console.log(cart)
+    } else {
+      increaseQuantity(cart[index]);
+    }
   }
+
+  const increaseQuantity = (product) => {
+    console.log(product)
+    const index = cart.findIndex((item) => item.product._id === product.product._id);
+    console.log(index)
+    const newCartItems = [...cart];
+    console.log(newCartItems)
+    newCartItems[index].quantity++;
+    setCart(newCartItems);
+  };
 
   return (
     <Article key={product['_id']}>
@@ -20,7 +38,7 @@ const Product = ({product}) => {
         <Line></Line>
         <p> {product.price} SEK</p>
         <div>
-          <Button $primary onClick={addProductToCart}>Add to cart</Button>
+          <Button $primary onClick={() => {addProductToCart(product)}}>Add to cart</Button>
           <Button><Link to={"/product/" + product['_id']}>Read more...</Link></Button>
         </div>
       </Wrapper>
