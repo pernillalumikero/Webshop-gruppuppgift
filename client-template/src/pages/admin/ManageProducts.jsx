@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ManageProducts = () => {
 
@@ -24,7 +25,7 @@ const ManageProducts = () => {
     <Main>
       
       <Title>Manage Products</Title>
-      <Button $primary id='create-btn'>+ Create new product</Button>
+      <Link to="/create"><Button $primary id='create-btn'>+ Create new product</Button></Link>
       
         <Table>
           <thead>
@@ -48,7 +49,7 @@ const ManageProducts = () => {
                 <td>{product.category}</td>
                 <td>{product.stock}</td>
                 <td>{new Date(product.date).toLocaleString()}</td>
-                <td><Button>Update</Button>
+                <td><Link to="/update"><Button>Update</Button></Link>
                 <Button $primary>Delete</Button></td>
                 
               </tr>
@@ -119,13 +120,15 @@ const Button = styled.button `
   cursor: pointer;
 
   a {
-  all: unset;
+    all: unset;
   }
 
 `
 
 const Main = styled.main`
-  
+  a {
+    all: unset;
+  }
 `
 
 

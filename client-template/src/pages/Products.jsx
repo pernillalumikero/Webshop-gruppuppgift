@@ -47,10 +47,8 @@ const scrollToTarget = () => {
       <Hero>
         <div id="dimmer-div"></div>
 
-          
-
-          <h2>Experience the <span>power</span> of <span>flowers</span></h2>
-          <button>Shop now <motion.span
+         <h2>Experience the <span>power</span> of <span>flowers</span></h2>
+          <button onClick={scrollToTarget}>Shop now <motion.span
            
         style={ballStyle}
         transition={bounceTransition}
@@ -112,6 +110,7 @@ const Hero = styled.div `
     border-radius: 10px;
     padding: 15px 30px;
     font-family: jost;
+    cursor: pointer;
   }
 `
 
