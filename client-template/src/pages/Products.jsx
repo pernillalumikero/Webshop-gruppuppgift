@@ -46,8 +46,12 @@ const scrollToTarget = () => {
     <div>
       <Hero>
         <div id="dimmer-div"></div>
-          <h2>Experiance the <span>power</span> of <span>flowers</span></h2>
-          <button onClick={scrollToTarget}>Shop now <motion.span
+
+          
+
+          <h2>Experience the <span>power</span> of <span>flowers</span></h2>
+          <button>Shop now <motion.span
+           
         style={ballStyle}
         transition={bounceTransition}
         animate={{
