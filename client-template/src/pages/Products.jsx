@@ -124,6 +124,7 @@ const ProductList = styled.section`
   grid-template-columns: repeat(4,1fr);
   gap: 3%;
   margin: 30px;
+  height: fit-content;
   /* &::after {
     content: "";
     width: 600px;
