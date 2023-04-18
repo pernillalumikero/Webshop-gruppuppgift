@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const Nav = ({handleCartClick}) => {
   return (
     <Navigation>
-      <section></section>
+      <Link to="/"><img id="logo" src="../src/assets/flwrpwr.png" alt="logotype"/></Link>
       <Link to="/">Home</Link>
       <Link to="#">About</Link>
       <Link to="#">Contact</Link>
@@ -26,6 +26,13 @@ const Navigation = styled.nav`
   flex-flow: row nowrap;
   gap: 30px;
   align-items: center;
+
+  
+    img {
+      height: 40px;
+    }
+  
+
   section {
     border-radius: 50%;
     height: 50px;
@@ -58,6 +65,7 @@ const Navigation = styled.nav`
         height: 20px;
       }
   }
+ 
 `
 
 export default Nav
