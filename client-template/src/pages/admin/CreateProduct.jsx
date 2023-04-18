@@ -1,15 +1,29 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useNavigate } from 'react-router-dom'
-import Product from '../Product';
+import { useNavigate, Link } from 'react-router-dom'
+import { Button } from '../../styling'
 
 const CreateProduct = () => {
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
+    console.log(JSON.stringify(newProduct))
     e.preventDefault();
-    createProduct();
+    try {
+      console.log(newProduct)
+      fetch('https://product-api-production-0b48.up.railway.app/products/', {
+          method: 'POST', 
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newProduct)
+      })
+      
+      navigate("/admin")
+    } catch(error) {
+      console.log(error)
+    }
 }
 
   const [newProduct, setNewProduct] = useState({
@@ -19,7 +33,6 @@ const CreateProduct = () => {
     stock: "",
     category: "",
     image:""
-
   });
 
   const handleChange = (e) => {
@@ -34,36 +47,25 @@ const CreateProduct = () => {
     console.log(newProduct)
   }
 
-  const createProduct = async () => {
-    try {
-      fetch('https://product-api-production-0b48.up.railway.app/products', {
-        method: "POST", 
-          headers: {
-            "Content-Type": "aplication/json"
-          },
-          body: JSON.stringify({
-            newProduct
-          })
-      })
-      // navigate("/admin")
-    } catch(error) {
-      console.log(error)
-    }
-  }
+  // const createProduct = () => {
+    
+  // }
  
 
   return (
-    <div>
+    <Main>
+    
     <Title>CreateProduct</Title>
+    <Link to="/admin"><Button>&larr; Back</Button></Link>
     <Form onSubmit={handleSubmit}>
       <label htmlFor='title'>Title</label>
       <input type="text" name="title" value={newProduct.title} onChange={handleChange} />
       <label htmlFor="price">Price</label>
-      <input type="text" name="price" value={newProduct.price} onChange={handleChange} />
+      <input type="number" name="price" value={newProduct.price} onChange={handleChange} />
       <label htmlFor="stock">Stock</label>
-      <input type="text" name="stock" value={newProduct.stock} onChange={handleChange}/>
+      <input type="number" name="stock" value={newProduct.stock} onChange={handleChange}/>
       <label htmlFor="category">Category</label>
-      <select name="category">
+      <select name="category" value={newProduct.category} onChange={handleChange}>
         <option value="spring">Spring</option>
         <option value="summer">Summer</option>
         <option value="winter">Winter</option>
@@ -72,33 +74,37 @@ const CreateProduct = () => {
       <label htmlFor="description">Description</label>
       <textarea name="description" id="" cols="30" rows="10" value={newProduct.description} onChange={handleChange}></textarea>
       <label htmlFor="picture">Image URL</label>
-      <input type="text" name="picture" value={newProduct.image} onChange={handleChange}/>
-      <Submit $primary type="submit" value="Submit" />
+      <input type="text" name="image" value={newProduct.image} onChange={handleChange}/>
+      <Submit $primary type="submit" value="Create" />
     </Form>
-    </div>
+    </Main>
   )
 }
+
+const Main = styled.main `
+  a {
+    text-decoration: none;
+    color: black;
+    margin-left: 100px;
+  }
+`
 
 const Submit = styled.input `
   all: unset;
   text-align: center;
   width: 30%;
   margin: 30px auto;
-  background: ${props => props.$primary ? "#630436" : "#E3D5CA"};
-  color: ${props => props.$primary ? "white" : "black"};
+  background: #630436;
+  color: white;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
-
-  a {
-    all: unset;
-  }
 `
 
 
 const Form = styled.form `
-  margin: 0 auto;
+  margin: 20px auto;
   width: 50%;
   display: flex;
   flex-flow: column nowrap;

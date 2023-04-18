@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Button } from '../../styling'
 
 const ManageProducts = () => {
 
@@ -19,6 +20,17 @@ const ManageProducts = () => {
   } catch(error) {
     console.log(error)
   }
+}
+
+const deleteProduct = async (id) => {
+  try {
+    await fetch('https://product-api-production-0b48.up.railway.app/products/' + id, {
+        method: 'DELETE',
+    });
+    fetchProducts();
+} catch(error) {
+    console.log(error)
+}
 }
 
   return (
@@ -43,14 +55,14 @@ const ManageProducts = () => {
             {products.map(product => 
               
               
-              <tr >
+              <tr>
                 <td>{product.title}</td>
                 <td>{product.price}:-</td>
                 <td>{product.category}</td>
                 <td>{product.stock}</td>
                 <td>{new Date(product.date).toLocaleString()}</td>
-                <td><Link to="/update"><Button>Update</Button></Link>
-                <Button $primary>Delete</Button></td>
+                <td id="btn-field"><Link to={"/update/" + product["_id"]}><Button>Update</Button></Link>
+                <Button onClick={() => deleteProduct(product._id)} $primary>Delete</Button></td>
                 
               </tr>
               
@@ -76,52 +88,37 @@ const Table = styled.table`
   table-layout: fixed;
   box-shadow: 0 0 10px 5px rgb(32, 41, 50, 0.3);
   
+    table, tr, th, td {
+        border: 2px solid rgb(44, 56, 69);
+        border-collapse: collapse;
+    }
 
-  table, tr, th, td {
-      border: 2px solid rgb(44, 56, 69);
-      border-collapse: collapse;
-  }
+    th, td {
+        padding: 20px;
+    }
 
-  th, td {
-      padding: 20px;
-  }
+    #stock-col, #price-col {
+        width: 15%;
+    }
 
-  #stock-col, #price-col {
-      width: 15%;
-  }
+    th {
+        background-color: rgb(32, 41, 50);
+        text-align: left;
+    }
 
-  
+    tbody tr:nth-child(odd) {
+        background-color: rgb(36, 46, 57);
+    }
 
+    tbody tr:nth-child(even) {
+        background-color: rgb(44, 56, 69);
+    }
 
-  th {
-      background-color: rgb(32, 41, 50);
-      text-align: left;
-  }
-
-  tbody tr:nth-child(odd) {
-      background-color: rgb(36, 46, 57);
-  }
-
-  tbody tr:nth-child(even) {
-      background-color: rgb(44, 56, 69);
-  }
-
-`
-
-const Button = styled.button `
-  all: unset;
-  /* margin-top: 5px; */
-  margin-right: 15px;
-  background: ${props => props.$primary ? "#630436" : "#E3D5CA"};
-  color: ${props => props.$primary ? "white" : "black"};
-  padding: 5px;
-  border-radius: 5px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-
-  a {
-    all: unset;
-  }
+    #btn-field {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+    }
 
 `
 
