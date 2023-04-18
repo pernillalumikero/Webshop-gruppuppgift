@@ -42,7 +42,7 @@ const bounceTransition = {
     <div>
       <Hero>
         <div id="dimmer-div"></div>
-          <h2>Experiance the <span>power</span> of <span>flowers</span></h2>
+          <h2>Experience the <span>power</span> of <span>flowers</span></h2>
           <button>Shop now <motion.span
         style={ballStyle}
         transition={bounceTransition}
