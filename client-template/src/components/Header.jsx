@@ -31,7 +31,7 @@ const HeaderStyling = styled.header `
 background-color: #D5BDAF;
 position: fixed;
 width: 100vw;
-z-index: 3;
+z-index: 10;
 `
 
 export default Header

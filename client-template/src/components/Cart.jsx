@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { Button } from '../styling'
 
 const Cart = ({cart, setCart, handleCartClick}) => {
 
@@ -31,13 +32,10 @@ const Cart = ({cart, setCart, handleCartClick}) => {
     setCart([])
   }
 
-  const scollToRef = useRef();
-
   return (
     <Dropdown>
       
       <h2>Cart</h2>
-      <button id='clear-btn' onClick={() => {removeCart()}}>Remove all items</button>
       {cart.map(item =>
         <Article key={item.product._id}>
           <img src={item.product.image} alt="image" />
@@ -50,10 +48,13 @@ const Cart = ({cart, setCart, handleCartClick}) => {
         </Article>
       )}
       <h3>Total {total}:-</h3>
-      <Link to="/checkout"><button onClick={handleCartClick} id='checkout-btn'>
+      <div id="btn-wrapper">
+      <Link to="/checkout"><Button id="check-out" $primary onClick={handleCartClick}>
         Go to checkout
-      </button>
+      </Button>
       </Link>
+      <Button $secondary onClick={() => {removeCart()}}>Remove all items</Button>
+      </div>
 
 
     </Dropdown>
@@ -65,58 +66,42 @@ const Dropdown = styled.div `
   position: fixed;
   overflow-y: scroll;
   right: 0;
-  top: 90px;
+  top: 86px;
   bottom: 0;
   width: 30vw;
   background-color: #E3D5CA;
   padding: 30px;
-  a {
-    all:unset;
-  }
-  #clear-btn {
-    all: unset;
-    text-align:center;
-    width: 40%;
-    margin: 30px 0;
-    background: #59534e;
-    color: white;
-    padding: 3px;
-    border-radius: 5px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-  }
-  #checkout-btn {
-    all: unset;
-    text-align:center;
-    width: 100%;
-    margin: 30px 0;
-    background: #630436;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-  }
+    a {
+      all:unset;
+    }
+    #btn-wrapper {
+      display: flex;
+      justify-content: space-around;
+    }
+    #check-out {
+      font-size: 20px;
+      padding: 2px 40px;
+    }
 `
 
 const Article = styled.article `
   display: flex;
   flex-flow: row nowrap;
-  img {
-    height: 150px;
-  }
-  div {
-    padding: 20px;
-    
-    button {
-      all: unset;
-      margin-top: 50px;
-      cursor: pointer;
-      img {
-        height: 20px;
-        
-      }
+    img {
+      height: 150px;
     }
+    div {
+      padding: 20px;
+      
+      button {
+        all: unset;
+        margin-top: 50px;
+        cursor: pointer;
+        img {
+          height: 20px;
+          
+        }
+      }
 
   }
   
