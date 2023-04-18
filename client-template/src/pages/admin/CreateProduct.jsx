@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useNavigate, Link } from 'react-router-dom'
-import { Button } from '../../styling'
+import { Button, Title } from '../../styling'
 
 const CreateProduct = () => {
 
@@ -117,9 +117,6 @@ const Form = styled.form `
     margin-top: 5px;
   }
 `
-const Title = styled.h2`
-  padding-top: 100px;
-  text-align: center;
-`
+
 
 export default CreateProduct

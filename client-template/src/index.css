@@ -3,7 +3,8 @@
   --secondary-color: #59534e;
   --default-color:  #E3D5CA;
 
-  --background-color: #ccc2b5;
+  /* --background-color: #ccc2b5; */
+  --background-color: #f1e7df;
 }
 
 * {
@@ -11,6 +12,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: jost;
+  font-weight: 200;
 }
 
 body {

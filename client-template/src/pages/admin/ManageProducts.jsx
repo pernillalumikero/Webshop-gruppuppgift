@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Button } from '../../styling'
+import { Button, Title } from '../../styling'
 
 const ManageProducts = () => {
 
@@ -75,10 +75,7 @@ const deleteProduct = async (id) => {
 
 
 
-const Title = styled.h2`
-  padding-top: 100px;
-  text-align: center;
-`
+
 
 const Table = styled.table`
 

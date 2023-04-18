@@ -32,6 +32,7 @@ background-color: #D5BDAF;
 position: fixed;
 width: 100vw;
 z-index: 10;
+box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
 `
 
 export default Header

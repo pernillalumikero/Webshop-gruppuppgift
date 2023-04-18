@@ -10,10 +10,10 @@ const Root = () => {
   return (
     <div>
       <Header cart={cart} setCart={setCart}/>
-      <section>
+      {/* <section> */}
         <Outlet context={[cart, setCart]} />
-      </section>
-    <Footer />
+      {/* </section> */}
+      <Footer />
     </div>
   )
 }
