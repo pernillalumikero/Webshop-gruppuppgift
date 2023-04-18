@@ -37,13 +37,17 @@ const bounceTransition = {
   }
 };
 
+const scrollToTarget = () => {
+  location.href = '#scrolltarget'
+}
+
 
   return (
     <div>
       <Hero>
         <div id="dimmer-div"></div>
           <h2>Experiance the <span>power</span> of <span>flowers</span></h2>
-          <button>Shop now <motion.span
+          <button onClick={scrollToTarget}>Shop now <motion.span
         style={ballStyle}
         transition={bounceTransition}
         animate={{
@@ -52,6 +56,7 @@ const bounceTransition = {
       </motion.span>
       </button>
       </Hero>
+      <ScrollTarget id='scrolltarget'></ScrollTarget>
       <ProductList>
         {products.map(product => 
           <Product key={product._id} product={product}/>
@@ -60,6 +65,7 @@ const bounceTransition = {
     </div>
   )
 }
+
 
 
 const Hero = styled.div `
@@ -103,6 +109,11 @@ const Hero = styled.div `
     padding: 15px 30px;
     font-family: jost;
   }
+`
+
+const ScrollTarget = styled.div`
+  position: absolute;
+  top: 90vh;
 `
 
 const ProductList = styled.section`

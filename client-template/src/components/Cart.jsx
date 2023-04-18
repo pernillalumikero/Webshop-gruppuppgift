@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -31,9 +31,11 @@ const Cart = ({cart, setCart, handleCartClick}) => {
     setCart([])
   }
 
+  const scollToRef = useRef();
 
   return (
     <Dropdown>
+      
       <h2>Cart</h2>
       <button id='clear-btn' onClick={() => {removeCart()}}>Remove all items</button>
       {cart.map(item =>
@@ -47,11 +49,11 @@ const Cart = ({cart, setCart, handleCartClick}) => {
           </div>
         </Article>
       )}
-<h3>Total {total}:-</h3>
-<Link to="/checkout"><button onClick={handleCartClick} id='checkout-btn'>
-  Go to checkout
-</button>
-</Link>
+      <h3>Total {total}:-</h3>
+      <Link to="/checkout"><button onClick={handleCartClick} id='checkout-btn'>
+        Go to checkout
+      </button>
+      </Link>
 
 
     </Dropdown>
@@ -61,8 +63,10 @@ const Cart = ({cart, setCart, handleCartClick}) => {
 const Dropdown = styled.div `
   font-family: jost;
   position: fixed;
+  overflow-y: scroll;
   right: 0;
-  height: 100vh;
+  top: 90px;
+  bottom: 0;
   width: 30vw;
   background-color: #E3D5CA;
   padding: 30px;
@@ -74,7 +78,7 @@ const Dropdown = styled.div `
     text-align:center;
     width: 40%;
     margin: 30px 0;
-    background: #630436;
+    background: #59534e;
     color: white;
     padding: 3px;
     border-radius: 5px;
@@ -86,7 +90,7 @@ const Dropdown = styled.div `
     text-align:center;
     width: 100%;
     margin: 30px 0;
-    background: #59534e;
+    background: #630436;
     color: white;
     padding: 5px;
     border-radius: 5px;

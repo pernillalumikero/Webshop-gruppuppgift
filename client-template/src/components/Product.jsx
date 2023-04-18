@@ -75,8 +75,8 @@ const Line = styled.div`
 const Button = styled.button `
   all: unset;
   margin-top: 5px;
-  background: ${props => props.$primary ? "#E3D5CA" : "#59534e"};
-  color: ${props => props.$primary ? "black" : "white"};
+  background: ${props => props.$primary ? "#630436" : "#E3D5CA"};
+  color: ${props => props.$primary ? "white" : "black"};
   padding: 5px;
   border-radius: 5px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
