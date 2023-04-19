@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { PageVariant, TextVariant } from '../animations'
@@ -77,7 +77,7 @@ const Checkout = () => {
     {total == 0 
       ? <div id="empty-cart">
           <h3 className='total'>Your cart is empty</h3> 
-          <Button $primary >Shop here!</Button>
+          <Link to='/'><Button $primary >Shop here!</Button></Link>
         </div>
       : <div> 
           <h3 className='total'>Total {total}:-</h3>
