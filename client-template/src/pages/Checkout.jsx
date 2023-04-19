@@ -67,7 +67,7 @@ const Checkout = () => {
       </Article>
 
     )}
-    <h3>Total {total}:-</h3>
+    {total==0?<h3>Your cart is empty</h3>:  <h3>Total {total}:-</h3>}
     
     </Checkoutpage>
   )
@@ -83,6 +83,8 @@ const Article = styled.article `
   
   img {
     height: 150px;
+    width: 100px;
+    object-fit: cover;
   }
   div {
     padding: 20px;
