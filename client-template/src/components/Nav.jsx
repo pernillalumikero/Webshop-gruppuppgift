@@ -90,6 +90,7 @@ const Navigation = styled.nav`
   button {
     all: unset;
     cursor: pointer;
+    width: 30px;
     img {
         height: 20px;
       }
