@@ -112,7 +112,8 @@ const Form = styled.form `
   right: 30px;
   display: flex;
   flex-flow: row nowrap;
-  background-color: #ffffff;
+  background-color: var(--secondary-color);
+  color: white;
   padding: 30px;
   column-gap: 20px;
 
@@ -139,17 +140,14 @@ const Form = styled.form `
 
       &:hover {
         transform: scale(1.05);
-      }
-      
+      } 
     }
-
-
   }
 `
 const Checkoutpage = styled.section`
 font-family: jost;
 padding: 0 100px;
-min-height: 60vh;
+min-height: 80vh;
   #empty-cart {
     display: flex;
     flex-flow: row nowrap;
@@ -171,6 +169,8 @@ const Tablerow = styled(motion.tr) `
     height: 150px;
     width: 100px;
     object-fit: cover;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    margin: 10px 0;
   }
 
   .count {
@@ -193,6 +193,8 @@ const Tablerow = styled(motion.tr) `
       #trashcan { 
           height: 20px;
           width: 20px;
+          box-shadow: none;
+          margin: 0;
         }
   }
     

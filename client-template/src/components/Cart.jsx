@@ -57,7 +57,7 @@ const Cart = ({cart, setCart, handleCartClick, cartVisible, setCartVisible}) => 
           </div>
         </Article>
       )}
-      {total==0?<h3>Your cart is empty</h3>:  <h3 id="total">Total {total}:-</h3>}
+      {total==0 ? <h3>Your cart is empty</h3> : <h3 id="total">Total {total}:-</h3>}
       <div id="btn-wrapper">
       <Link to="/checkout"><Button id="check-out" $primary onClick={() => {handleCartClick(); window.scrollTo(0, 0)}}>
         Go to checkout
@@ -65,8 +65,6 @@ const Cart = ({cart, setCart, handleCartClick, cartVisible, setCartVisible}) => 
       </Link>
       <Button $secondary onClick={() => {removeCart()}}>Remove all items</Button>
       </div>
-
-
     </Dropdown>
   )
 }
@@ -104,7 +102,6 @@ const Dropdown = styled(motion.div) `
       right: 20px;
       font-size: 1.2rem;
       cursor: pointer;
-     
     }
 `
 
@@ -115,6 +112,8 @@ const Article = styled.article `
       height: 150px;
       width: 100px;
       object-fit: cover;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      margin: 10px 0;
     }
     div {
       padding: 20px;
@@ -126,6 +125,7 @@ const Article = styled.article `
         #trashcan { 
           height: 20px;
           width: 20px;
+          box-shadow: none;
         }
       }
 

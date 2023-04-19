@@ -88,7 +88,7 @@ const UpdateProduct = () => {
 
 const Main = styled.main `
   a {
-    padding-top: 100px;
+    padding-top: 125px;
     text-decoration: none;
     color: black;
   }

@@ -45,12 +45,7 @@ const CreateProduct = () => {
     }
     setNewProduct(newObject)
     console.log(newProduct)
-  }
-
-  // const createProduct = () => {
-    
-  // }
- 
+  } 
 
   return (
     <Main>
@@ -85,7 +80,7 @@ const CreateProduct = () => {
 
 const Main = styled.main `
   a {
-    padding-top: 100px;
+    padding-top: 125px;
     text-decoration: none;
     color: black;
   }

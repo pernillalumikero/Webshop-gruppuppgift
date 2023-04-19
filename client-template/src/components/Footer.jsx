@@ -24,6 +24,7 @@ const Footer = () => {
       <article>
         <a href="#" className="fa fa-facebook"></a>
         <a href="#" className="fa fa-instagram"></a>
+        <a href="#"className="fa fa-twitter"></a>
       </article>
     </Foot>
   )
@@ -54,6 +55,7 @@ const Foot = styled.footer`
 
     #logo {
       height: 100px;
+      margin-right: 40px;
     }
 
     .fa {
@@ -68,7 +70,7 @@ const Foot = styled.footer`
       opacity: 0.7;
     }
 
-    .fa-facebook, .fa-instagram {  
+    .fa-facebook, .fa-instagram, .fa-twitter {  
       color: black;
     }
   }
