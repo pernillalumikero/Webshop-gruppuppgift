@@ -81,18 +81,24 @@ const Checkout = () => {
         </div>
       : <div> 
           <h3 className='total'>Total {total}:-</h3>
-            <Form action="">
-              <label htmlFor="firstname">Firstname</label>
-              <input type="text" name='firstname' />
-              <label htmlFor="name">Lastname</label>
-              <input type="text" name='lastname' />
-              <label htmlFor="address">Address</label>
-              <input type="text" name='address' />
-              <label htmlFor="phone">Phonenumber</label>
-              <input type="text" name='phone' />
-              <label htmlFor="mail">Email</label>
-              <input type="text" name='mail' />
-              <input type="submit" />
+            <Form>
+              <div>
+                <label htmlFor="firstname">Firstname</label>
+                <input type="text" name='firstname' />
+                <label htmlFor="address">Address</label>
+                <input type="text" name='address' />
+                <label htmlFor="phone">Phone</label>
+                <input type="text" name='phone' />
+              </div>
+              <div>
+                <label htmlFor="name">Lastname</label>
+                <input type="text" name='lastname' />
+                <label htmlFor="zip-code">ZIP code</label>
+                <input type="text" name='zip-code' />
+                <label htmlFor="mail">E-mail</label>
+                <input type="text" name='mail' />
+              <input id='submit' type="submit" value='Go to payment'/>
+              </div>
             </Form>
           </div>}
     </Checkoutpage>
@@ -101,9 +107,41 @@ const Checkout = () => {
 }
 
 const Form = styled.form `
-  width: 60%;
+  position: absolute;
+  top: 170px;
+  right: 30px;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
+  background-color: white;
+  padding: 30px;
+  column-gap: 20px;
+
+  div {
+    display: flex;
+    flex-flow: column nowrap;
+    
+
+    input {
+      border: 0.5px solid var(--secondary-color);
+      width: 300px;
+      padding: 10px;
+    }
+
+    #submit {
+      margin-top: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+      
+    }
+
+
+  }
 `
 const Checkoutpage = styled.section`
 font-family: jost;
