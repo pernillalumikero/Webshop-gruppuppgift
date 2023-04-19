@@ -112,7 +112,7 @@ const Form = styled.form `
   right: 30px;
   display: flex;
   flex-flow: row nowrap;
-  background-color: white;
+  background-color: #ffffff;
   padding: 30px;
   column-gap: 20px;
 
@@ -120,6 +120,9 @@ const Form = styled.form `
     display: flex;
     flex-flow: column nowrap;
     
+    label {
+      margin-top: 15px;
+    }
 
     input {
       border: 0.5px solid var(--secondary-color);
