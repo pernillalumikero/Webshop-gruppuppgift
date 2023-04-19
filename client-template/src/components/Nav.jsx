@@ -15,6 +15,7 @@ const Nav = ({handleCartClick}) => {
         <Link to="/admin"><img id="user" src="../src/assets/user.png" alt="Admin log in"/></Link>
         <Link to="/admin">Admin</Link>
         <button onClick={handleCartClick}><img src="../src/assets/shopping.png" alt="Shopping bag"/></button>
+        <div id='shop-quantity'>0</div>
       </div>
     </Navigation>
   )
@@ -44,6 +45,20 @@ const Navigation = styled.nav`
     flex-flow: row nowrap;
     gap: 30px;
     margin: 0 0 0 auto;
+
+    #shop-quantity {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: var(--secondary-color);
+      color: white;
+      font-weight: bolder;
+      font-size: 10px;
+      padding-left: 4px;
+      position: absolute;
+      margin-left: 120px;
+      margin-top: -5px;
+    }
   }
 
   a {
