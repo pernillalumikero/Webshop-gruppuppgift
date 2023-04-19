@@ -1,10 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button } from '../styling'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <Foot>
+      <article id="profile">
+        <Link to="/"><img id="logo" src="../src/assets/flwrpwr.png" alt="logotype"/></Link>
+        <div>
+          <h3>Flower Power</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, cum? Aut odio assumenda, aspernatur voluptatum ipsam illum doloribus, tenetur aliquam dignissimos, unde ducimus ad exercitationem earum accusamus nobis perferendis recusandae.</p>
+        </div>
+      </article>
       <article>
         <p>Sign up for our newsletter</p>
         <form action="">
@@ -12,8 +20,12 @@ const Footer = () => {
           <Button $secondary>Sign up</Button>
         </form>
       </article>
-      <article>Logga</article>
-      <article>Kontakt</article>
+      
+      <article>
+
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-instagram"></a>
+      </article>
     </Foot>
   )
 }
@@ -21,10 +33,10 @@ const Footer = () => {
 const Foot = styled.footer`
   background-color: #D5BDAF;
   margin-top: 0px;
-  padding: 100px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  padding: 80px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  column-gap: 5vw;
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
 
   article {
@@ -40,6 +52,42 @@ const Foot = styled.footer`
       margin-right: 10px;
       width: 200px;
 
+    }
+
+    #logo {
+      height: 100px;
+    }
+
+    .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    }
+
+    /* Add a hover effect if you want */
+    .fa:hover {
+      opacity: 0.7;
+    }
+
+    /* Set a specific color for each brand */
+
+    /* Facebook */
+    .fa-facebook, .fa-instagram {
+      
+      color: black;
+    }
+
+  
+  }
+
+  #profile {
+    display: flex;
+    flex-flow: row nowrap;
+
+    p {
+      font-size: 1rem;
     }
   }
 `
