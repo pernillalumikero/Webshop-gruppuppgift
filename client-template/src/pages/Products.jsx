@@ -21,7 +21,7 @@ const Products = () => {
     console.log(error)
   }
 }
-const ballStyle = {
+const arrowStyle = {
   display: "inline-block",
   width: "1rem",
   height: "1rem",
@@ -41,7 +41,6 @@ const scrollToTarget = () => {
   location.href = '#scrolltarget'
 }
 
-
   return (
     <Main>
       <Hero>
@@ -50,7 +49,7 @@ const scrollToTarget = () => {
          <h2>Experience the <span>power</span> of <span>flowers</span></h2>
           <button onClick={scrollToTarget}>Shop now <motion.span
            
-        style={ballStyle}
+        style={arrowStyle}
         transition={bounceTransition}
         animate={{
           y: ["40%", "-40%"],

@@ -54,21 +54,37 @@ const Checkout = () => {
   return (
     <Checkoutpage>      
     <h2>Checkout</h2>
-    {cart.map(item =>
-      <Article key={item.product._id}>
-        <img src={item.product.image} alt="image" />
-        <div>
-          <h3>{item.product.title}</h3>
-          <p>{item.product.price}:-</p>
-          <div className='count'>
-          <button onClick={ () =>{decreaseQuantity(item)}}>-</button>
-          <p> {item.quantity}</p>
-          <button onClick={ () =>{increaseQuantity(item)}} >+</button>
-          <button id="delete" onClick={() => {removeFromCart(item.product['_id'])}}><img src="../src/assets/trashcan.png" alt="trashcan" /></button>
-          </div></div>
-      </Article>
+    <table>
+      <tbody
+      initial = {{opacity: 0}}
+      animate = {{opacity: 1}}
+      transition = {{duration: 2, staggerChildren: 0.3}}>
+        {cart.map(item =>
+          <Tablerow key={item.product._id}
+            initial = {{opacity: 0}}
+            animate = {{opacity: 1}}
+            transition = {{duration: 2}}
+          >
+            <td>
+              <img src={item.product.image} alt="image" />
+            </td>
+            <td>
+              <h3>{item.product.title}</h3>
+              <p>{item.product.price}:-</p>
+            </td>
+            <td>
+              <div className='count'>
+                <button onClick={ () =>{decreaseQuantity(item)}}>-</button>
+                <p> {item.quantity}</p>
+                <button onClick={ () =>{increaseQuantity(item)}} >+</button>
+                <button id="delete" onClick={() => {removeFromCart(item.product['_id'])}}><img id="trashcan" src="../src/assets/trashcan.png" alt="trashcan" /></button>
+              </div>
+            </td>
+          </Tablerow>
+        )}
+      </tbody>
+    </table>
 
-    )}
     {total==0?<h3>Your cart is empty</h3>:  <h3>Total {total}:-</h3>}
     
     </Checkoutpage>
@@ -79,38 +95,44 @@ const Checkoutpage = styled.section`
 padding: 100px;
 font-family: jost;
 `
-const Article = styled(motion.article) `
-  display: flex;
-  flex-flow: row nowrap;
-  
+const Tablerow = styled(motion.tr) `
+  td {
+    padding: 0 20px; 
+  }
+
   img {
     height: 150px;
     width: 100px;
     object-fit: cover;
   }
-  div {
-    padding: 20px;
-    .count {
-      gap: 5px;
-      display: flex;
+
+  .count {
+    gap: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+
       button {
-        margin:0;
+        margin:0 8px;
         background-color:#59534e;
         color: white;
-        padding: 5px;
         border-radius: 3px;
+        width: 20px;
+        height: 25px;
       }
-
-    }
+      p {
+        font-size: 20px;
+       
+      }
+      #trashcan { 
+          height: 20px;
+          width: 20px;
+        }
+  }
+    
     #delete {
       all: unset;
-      background-color: none;
-      
+      background-color: none;   
       cursor: pointer;
-      img {
-        height: 20px;
-        
-      }
-    }
-  }`
+    }`
 export default Checkout

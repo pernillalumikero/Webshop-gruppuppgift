@@ -16,7 +16,6 @@ const Cart = ({cart, setCart, handleCartClick, cartVisible, setCartVisible}) => 
     
   }
 
-
   const [total, setTotal] = useState(0)
   const calculateTotal = () => {
   let sum=0
@@ -60,7 +59,7 @@ const Cart = ({cart, setCart, handleCartClick, cartVisible, setCartVisible}) => 
       )}
       {total==0?<h3>Your cart is empty</h3>:  <h3 id="total">Total {total}:-</h3>}
       <div id="btn-wrapper">
-      <Link to="/checkout"><Button id="check-out" $primary onClick={handleCartClick}>
+      <Link to="/checkout"><Button id="check-out" $primary onClick={() => {handleCartClick(); window.scrollTo(0, 0)}}>
         Go to checkout
       </Button>
       </Link>
@@ -124,13 +123,9 @@ const Article = styled.article `
         all: unset;
         margin-top: 20px;
         cursor: pointer;
-        #trashcan {
-          
+        #trashcan { 
           height: 20px;
           width: 20px;
-        
-
-          
         }
       }
 
