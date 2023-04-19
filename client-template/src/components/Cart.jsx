@@ -15,6 +15,7 @@ const Cart = ({cart, setCart, handleCartClick}) => {
     
   }
 
+
   const [total, setTotal] = useState(0)
   const calculateTotal = () => {
   let sum=0
@@ -23,8 +24,6 @@ const Cart = ({cart, setCart, handleCartClick}) => {
     sum+=price
    })
    setTotal(sum)
-
-  
   }
   useEffect (()=> {calculateTotal()},[total, cart])
 

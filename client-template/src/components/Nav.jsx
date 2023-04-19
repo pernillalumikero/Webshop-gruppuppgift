@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { useState } from 'react'
 
 
 
-const Nav = ({handleCartClick}) => {
+const Nav = ({handleCartClick, cart}) => {
+
+  const [quantity, setQuantity] = useState(0)
+  const displayQuantity = () => {
+      let sum = 0;
+      cart.map(item => {
+        let newQuantity = item.quantity;
+        sum+=newQuantity
+      })
+      setQuantity(sum)
+  }
+
+  useEffect (()=> {displayQuantity()},[quantity, cart])
+
   return (
     <Navigation>
       <Link to="/"><img id="logo" src="../src/assets/flwrpwr.png" alt="logotype"/></Link>
@@ -15,7 +29,7 @@ const Nav = ({handleCartClick}) => {
         <Link to="/admin"><img id="user" src="../src/assets/user.png" alt="Admin log in"/></Link>
         <Link to="/admin">Admin</Link>
         <button onClick={handleCartClick}><img src="../src/assets/shopping.png" alt="Shopping bag"/></button>
-        <div id='shop-quantity'>0</div>
+        <div id='shop-quantity'>{quantity}</div>
       </div>
     </Navigation>
   )
