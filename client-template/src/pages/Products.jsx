@@ -130,6 +130,7 @@ const ScrollTarget = styled.div`
 `
 
 const ProductList = styled.section`
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 3%;
