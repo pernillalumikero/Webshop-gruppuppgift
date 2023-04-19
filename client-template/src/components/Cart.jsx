@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Button } from '../styling'
+import { motion } from 'framer-motion'
 
 const Cart = ({cart, setCart, handleCartClick, cartVisible, setCartVisible}) => {
 
@@ -32,7 +33,18 @@ const Cart = ({cart, setCart, handleCartClick, cartVisible, setCartVisible}) => 
   }
 
   return (
-    <Dropdown>
+    <Dropdown
+      initial= {{
+        x: 300
+      }}
+      animate= {{
+        y: 0,
+        x: 0
+      }}
+      transition = {{
+        type: "tween"
+      }}
+    >
       <div onClick={() => {setCartVisible(false)}} id="close">&#x2715;</div>
       <h2>Cart</h2>
       {cart.map(item =>
@@ -60,7 +72,7 @@ const Cart = ({cart, setCart, handleCartClick, cartVisible, setCartVisible}) => 
   )
 }
 
-const Dropdown = styled.div `
+const Dropdown = styled(motion.div) `
   font-family: jost;
   position: fixed;
   overflow-y: scroll;

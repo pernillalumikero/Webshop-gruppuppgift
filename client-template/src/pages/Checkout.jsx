@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useOutletContext } from "react-router-dom";
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 
 
@@ -51,7 +52,8 @@ const Checkout = () => {
   useEffect (()=> {calculateTotal()},[total, cart]) 
 
   return (
-    <Checkoutpage>      <h2>Checkout</h2>
+    <Checkoutpage>      
+    <h2>Checkout</h2>
     {cart.map(item =>
       <Article key={item.product._id}>
         <img src={item.product.image} alt="image" />
@@ -77,7 +79,7 @@ const Checkoutpage = styled.section`
 padding: 100px;
 font-family: jost;
 `
-const Article = styled.article `
+const Article = styled(motion.article) `
   display: flex;
   flex-flow: row nowrap;
   

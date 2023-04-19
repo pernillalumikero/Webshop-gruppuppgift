@@ -2,10 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import { Button } from '../styling'
 import { Link } from 'react-router-dom'
+import { motion, spring } from 'framer-motion'
 
 const Footer = () => {
   return (
     <Foot>
+      <motion.div id='contact'
+      whileHover={{
+        x: -700,
+        y: -500,
+        
+        transition:  { duration: 1, type: "spring" },
+      }}
+      >Customer service</motion.div>
       <article id="profile">
         <Link to="/"><img id="logo" src="../src/assets/flwrpwr.png" alt="logotype"/></Link>
         <div>
@@ -23,8 +32,8 @@ const Footer = () => {
       
       <article>
 
-        <a href="#" class="fa fa-facebook"></a>
-        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" className="fa fa-facebook"></a>
+        <a href="#" className="fa fa-instagram"></a>
       </article>
     </Foot>
   )
@@ -39,6 +48,18 @@ const Foot = styled.footer`
   column-gap: 5vw;
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
 
+  #contact {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    width: 100px;
+    height: 70px;
+    background-color: #243524;
+    z-index: 20;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px 0 rgba(250,250,250,0.3);
+
+  }
   article {
     
     p {
