@@ -43,7 +43,7 @@ const scrollToTarget = () => {
 
 
   return (
-    <div>
+    <Main>
       <Hero>
         <div id="dimmer-div"></div>
 
@@ -64,11 +64,13 @@ const scrollToTarget = () => {
           <Product key={product._id} product={product}/>
         )}
       </ProductList>
-    </div>
+    </Main>
   )
 }
 
-
+const Main = styled.main`
+  /* height: 3000px; */
+`
 
 const Hero = styled.div `
   background-image: url(../src/assets/heropicture.jpg);
@@ -123,12 +125,7 @@ const ProductList = styled.section`
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 3%;
-  margin: 30px;
-  height: fit-content;
-  /* &::after {
-    content: "";
-    width: 600px;
-  } */
+  padding: 30px 50px 120px 50px;
 `
 
 export default Products
