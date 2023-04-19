@@ -45,8 +45,15 @@ const scrollToTarget = () => {
     <Main>
       <Hero>
         <div id="dimmer-div"></div>
-
-         <h2>Experience the <span>power</span> of <span>flowers</span></h2>
+        <div id="h2-wrapper">
+          <motion.h2
+            initial={{opacity: 0, scale: 0.5}}
+            animate={{opacity: 1, scale: 1}}
+            transition={{duration: 2}}
+          >
+            Experience the <span>power</span> of <span>flowers</span>
+          </motion.h2>
+        </div>
           <button onClick={scrollToTarget}>Shop now <motion.span
            
         style={arrowStyle}
@@ -83,12 +90,14 @@ const Hero = styled.div `
     background-color: black;
     opacity: 0.4;
   }
+  #h2-wrapper {
+    width: 100vw;
+    top: 300px;
+    position:absolute;
+  }
 
   h2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    text-align: center;
     color: white;
     font-size: 3.4rem;
     span:first-child {

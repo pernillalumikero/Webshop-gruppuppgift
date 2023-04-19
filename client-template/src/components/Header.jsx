@@ -28,7 +28,7 @@ const Header = ({cart, setCart}) => {
 }
 
 const HeaderStyling = styled.header `
-background-color: #D5BDAF;
+background-color: var(--header-color);
 position: fixed;
 width: 100vw;
 z-index: 10;

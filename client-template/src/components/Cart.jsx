@@ -52,7 +52,7 @@ const Cart = ({cart, setCart, handleCartClick, cartVisible, setCartVisible}) => 
           <div>
             <h3>{item.product.title}</h3>
             <p>{item.product.price}:-</p>
-            <p>count: {item.quantity}</p>
+            <p>quantity: {item.quantity}</p>
             <button onClick={() => {removeFromCart(item.product['_id'])}}><img id="trashcan" src="../src/assets/trashcan.png" alt="trashcan" /></button>
           </div>
         </Article>

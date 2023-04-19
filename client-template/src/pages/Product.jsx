@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
+import { Button, Title } from "../styling";
 
 const Product = () => {
   const [product, setProduct] = useState({})
@@ -52,14 +53,16 @@ const Product = () => {
       <img src={product.image} alt="flower" />
       <div id="wrapper">
         <div id="heading">
-          <h1>{product.title}</h1>
+          <Title>{product.title}</Title>
           <p id="price">{product.price}:-</p>
         </div>
-        <button onClick={() => {addProductToCart(product)}}>Add to cart</button>
+        <Button $primary onClick={() => {addProductToCart(product)}}>Add to cart</Button>
         <p id="info">{product.description}</p>
+        <p>Category: {product.category}</p>
         <div id="stock">
         <b>Stock: &#20;</b> <p> {product.stock}</p>
         </div>
+      <Link to="/"><Button $secondary onClick={window.scrollTo(0, 0)} id="back-btn">&larr; Back</Button></Link>
       </div>
     </Section>
   )
@@ -72,9 +75,10 @@ const Section = styled.section`
   padding-top: 100px;
   display: flex;
   flex-flow: row nowrap;
-  h1 {
-    font-size: 30px;
-  }
+   h2 {
+    padding: 0;
+   }
+
   img {
     height: fit-content;
     width: 30vw;
@@ -93,22 +97,21 @@ const Section = styled.section`
   }
   #stock {
     display: flex;
+    margin-top: 20px;
   }
   #info {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
-
+  #back-btn {
+    width: 30%;
+  }
+  a {
+    text-decoration: none;
+  }
   button {
-    all: unset;
     text-align:center;
     width: 100%;
     margin: 30px 0;
-    background: #59534e;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    cursor: pointer;
   }
 
 `

@@ -35,10 +35,7 @@ const deleteProduct = async (id) => {
 
   return (
     <Main>
-      
       <Title>Manage Products</Title>
-      <Link to="/create"><Button $primary id='create-btn'>+ Create new product</Button></Link>
-      
         <Table>
           <thead>
               <tr>
@@ -47,14 +44,11 @@ const deleteProduct = async (id) => {
                   <th id="category-col">Category</th>
                   <th id="stock-col">Stock</th>
                   <th id="date-col">Date</th>
-                  <th></th>
-                  
+                  <th id="btn-col"><Link to="/create"><Button id='create-btn'>+ Create new product</Button></Link></th>
               </tr>
           </thead>
           <tbody>
             {products.map(product => 
-              
-              
               <tr>
                 <td>{product.title}</td>
                 <td>{product.price}:-</td>
@@ -63,9 +57,7 @@ const deleteProduct = async (id) => {
                 <td>{new Date(product.date).toLocaleString()}</td>
                 <td id="btn-field"><Link to={"/update/" + product["_id"]}><Button>Update</Button></Link>
                 <Button onClick={() => deleteProduct(product._id)} $primary>Delete</Button></td>
-                
-              </tr>
-              
+              </tr> 
             )}
           </tbody>
         </Table>
@@ -115,6 +107,12 @@ const Table = styled.table`
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-around;
+    }
+    #create-btn {
+      background-color: var(--header-color);
+    }
+    #btn-col {
+      text-align: center;
     }
 
 `

@@ -22,12 +22,12 @@ const Nav = ({handleCartClick, cart}) => {
   return (
     <Navigation>
       <Link to="/"><img id="logo" src="../src/assets/flwrpwr.png" alt="logotype"/></Link>
-      <Link to="/">Home</Link>
-      <Link to="#">About</Link>
-      <Link to="#">Contact</Link>
+      <Link className='hover-underline' to="/">Home</Link>
+      <Link className='hover-underline' to="#">About</Link>
+      <Link className='hover-underline' to="#">Contact</Link>
       <div>
         <Link to="/admin"><img id="user" src="../src/assets/user.png" alt="Admin log in"/></Link>
-        <Link to="/admin">Admin</Link>
+        <Link className='hover-underline' to="/admin">Admin</Link>
         <button onClick={handleCartClick}><img src="../src/assets/shopping.png" alt="Shopping bag"/></button>
         <div id='shop-quantity'>{quantity}</div>
       </div>
@@ -94,6 +94,29 @@ const Navigation = styled.nav`
     img {
         height: 20px;
       }
+  }
+
+  .hover-underline {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .hover-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 1px;
+    left: 0%;
+    background-color: black;
+    transform-origin: center;
+    transition: transform 0.25s ease-out;
+  }
+
+  .hover-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: center;
   }
  
 `

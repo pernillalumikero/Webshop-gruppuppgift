@@ -53,13 +53,15 @@ const UpdateProduct = () => {
       [name]: value
     }
     setNewProduct(newObject)
-    console.log(newProduct)
   } 
 
   return (
-    <div>
-    <Title>CreateProduct</Title>
-    <Link to="/admin"><Button>&larr; Back</Button></Link>
+    <Main>
+    <div id="wrapper">
+      <Link to="/admin"><Button>&larr; Back</Button></Link>
+      <Title>Update Product</Title>
+      <div id="fake"></div>
+      </div>
     <Form onSubmit={handleSubmit}>
       <label htmlFor='title'>Title</label>
       <input type="text" name="title" value={newProduct.title} onChange={handleChange} />
@@ -80,9 +82,27 @@ const UpdateProduct = () => {
       <input type="text" name="image" value={newProduct.image} onChange={handleChange}/>
       <Submit $primary type="submit" value="Update" />
     </Form>
-    </div>
+    </Main>
   )
 }
+
+const Main = styled.main `
+  a {
+    padding-top: 100px;
+    text-decoration: none;
+    color: black;
+  }
+  #wrapper {
+    margin: 0 auto;
+    width: 65%;
+    justify-content: space-around;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  #fake {
+    width: 100px;
+  }
+`
 
 const Submit = styled.input `
   all: unset;
@@ -96,7 +116,6 @@ const Submit = styled.input `
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
 `
-
 
 const Form = styled.form `
   margin: 0 auto;
