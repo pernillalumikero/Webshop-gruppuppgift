@@ -29,7 +29,11 @@ const Nav = ({handleCartClick, cart}) => {
         <Link to="/admin"><img id="user" src="../src/assets/user.png" alt="Admin log in"/></Link>
         <Link className='hover-underline' to="/admin">Admin</Link>
         <button onClick={handleCartClick}><img src="../src/assets/shopping.png" alt="Shopping bag"/></button>
-        {quantity==0 ? null : <div id='shop-quantity'>{quantity}</div>}
+        {quantity == 0 
+          ? null : quantity > 9 
+          ? <div id='shop-quantity' className='big'>{quantity}</div>
+          : <div id='shop-quantity' className='small'>{quantity}</div>
+        }
       </div>
     </Navigation>
   )
@@ -68,10 +72,16 @@ const Navigation = styled.nav`
       color: white;
       font-weight: bolder;
       font-size: 10px;
-      padding-left: 5px;
       position: absolute;
       margin-left: 120px;
       margin-top: -5px;
+    }
+
+    .small {
+      padding-left: 5px;
+    }
+    .big {
+      padding-left: 3px;
     }
   }
 
