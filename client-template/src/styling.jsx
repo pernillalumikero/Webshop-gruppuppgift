@@ -22,3 +22,24 @@ export const Button = styled.button `
   }
 `
 
+export const Main = styled.main `
+
+  a {
+    padding-top: 125px;
+    text-decoration: none;
+    color: black;
+  }
+
+  #wrapper {
+    margin: 0 auto;
+    width: 65%;
+    justify-content: space-around;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  #fake {
+    width: 100px;
+  }
+`
+

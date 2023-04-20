@@ -5,6 +5,7 @@ import { useOutletContext, Link } from "react-router-dom";
 import { Button, Title } from "../styling";
 
 const Product = () => {
+
   const [product, setProduct] = useState({})
   const params = useParams()
   const [cart, setCart] = useOutletContext();
@@ -14,9 +15,7 @@ const Product = () => {
   }, [])
 
   const addProductToCart = (product) => {
-    console.log(product);
     const index = cart.findIndex((item) => item.product._id === product._id);
-    console.log(index);
 
     if (index === -1) {
       setCart([...cart, {product, quantity: 1}])
@@ -27,11 +26,8 @@ const Product = () => {
   }
 
   const increaseQuantity = (product) => {
-    console.log(product)
     const index = cart.findIndex((item) => item.product._id === product.product._id);
-    console.log(index)
     const newCartItems = [...cart];
-    console.log(newCartItems)
     newCartItems[index].quantity++;
     setCart(newCartItems);
   };
@@ -41,7 +37,6 @@ const Product = () => {
     try {
       const response = await fetch ('https://product-api-production-0b48.up.railway.app/products/' + params.id)
       const data = await response.json()
-      console.log(data);
       setProduct(data);
     } catch(error){
       console.log(error)
@@ -60,21 +55,23 @@ const Product = () => {
         <p id="info">{product.description}</p>
         <p>Category: {product.category}</p>
         <div id="stock">
-        <b>Stock: &#20;</b> <p> {product.stock}</p>
+          <b>Stock: &#20;</b> <p> {product.stock}</p>
         </div>
-      <Link to="/"><Button $secondary onClick={window.scrollTo(0, 0)} id="back-btn">&larr; Back</Button></Link>
+        <Link to="/"><Button $secondary onClick={window.scrollTo(0, 0)} id="back-btn">&larr; Back</Button></Link>
       </div>
     </Section>
   )
 }
 
 const Section = styled.section`
+
   font-family: jost;
   margin: auto;
   width: fit-content;
   padding-top: 100px;
   display: flex;
   flex-flow: row nowrap;
+
    h2 {
     padding: 0;
    }
@@ -83,31 +80,39 @@ const Section = styled.section`
     height: fit-content;
     width: 30vw;
   }
+
   #price {
     font-size: 23px;
   }
+
   #wrapper {
     width: 40vw;
     padding: 5%;
   }
+
   #heading {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
   }
+
   #stock {
     display: flex;
     margin-top: 20px;
   }
+
   #info {
     margin-bottom: 40px;
   }
+
   #back-btn {
     width: 30%;
   }
+
   a {
     text-decoration: none;
   }
+  
   button {
     text-align:center;
     width: 100%;

@@ -11,7 +11,6 @@ const ManageProducts = () => {
     fetchProducts()
   }, [])
 
-
   const fetchProducts = async () => {
   try {
     const response = await fetch('https://product-api-production-0b48.up.railway.app/products')
@@ -28,13 +27,13 @@ const deleteProduct = async (id) => {
         method: 'DELETE',
     });
     fetchProducts();
-} catch(error) {
+  } catch(error) {
     console.log(error)
-}
+  }
 }
 
   return (
-    <Main>
+    <main>
       <Title>Manage Products</Title>
         <Table>
           <thead>
@@ -44,7 +43,9 @@ const deleteProduct = async (id) => {
                   <th id="category-col">Category</th>
                   <th id="stock-col">Stock</th>
                   <th id="date-col">Date</th>
-                  <th id="btn-col"><Link to="/create"><Button id='create-btn'>+ Create new product</Button></Link></th>
+                  <th id="btn-col">
+                    <Link to="/create"><Button id='create-btn'>+ Create new product</Button></Link>
+                  </th>
               </tr>
           </thead>
           <tbody>
@@ -61,16 +62,11 @@ const deleteProduct = async (id) => {
             )}
           </tbody>
         </Table>
-    </Main>
+    </main>
   )
 }
 
-
-
-
-
 const Table = styled.table`
-
   width: 90%;
   margin: 30px auto;
   color: white;
@@ -114,13 +110,6 @@ const Table = styled.table`
     #btn-col {
       text-align: center;
     }
-
-`
-
-const Main = styled.main`
-  a {
-    all: unset;
-  }
 `
 
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { useNavigate, Link } from 'react-router-dom'
-import { Button, Title } from '../../styling'
+import { Button, Title, Main } from '../../styling'
 import Form from '../../components/Form'
 
 const CreateProduct = () => {
@@ -37,61 +36,13 @@ const CreateProduct = () => {
   return (
     <Main>
       <div id="wrapper">
-        <Link to="/admin"><Button>&larr; Back</Button></Link>
+        <Link to="/admin"><Button $secondary>&larr; Back</Button></Link>
         <Title>Create Product</Title>
         <div id="fake"></div>
       </div>
-      <Form handleSubmit={handleSubmit} />
-        
+      <Form handleSubmit={handleSubmit} newProduct={newProduct} setNewProduct={setNewProduct} btnName="Create" />
     </Main>
   )
 }
-
-const Main = styled.main `
-  a {
-    padding-top: 125px;
-    text-decoration: none;
-    color: black;
-  }
-  #wrapper {
-    margin: 0 auto;
-    width: 65%;
-    justify-content: space-around;
-    display: flex;
-    flex-flow: row nowrap;
-  }
-  #fake {
-    width: 100px;
-  }
-`
-
-const Submit = styled.input `
-  all: unset;
-  text-align: center;
-  width: 30%;
-  margin: 30px auto;
-  background: var(--primary-color);
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-`
-
-const Form = styled.form `
-  margin: 0 auto;
-  width: 50%;
-  display: flex;
-  flex-flow: column nowrap;
-
-  input, select {
-    padding: 7px;
-  }
-
-  label {
-    margin-top: 5px;
-  }
-`
-
 
 export default CreateProduct

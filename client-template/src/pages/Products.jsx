@@ -42,7 +42,7 @@ const scrollToTarget = () => {
 }
 
   return (
-    <Main>
+    <main>
       <Hero>
         <div id="dimmer-div"></div>
         <div id="h2-wrapper">
@@ -54,15 +54,12 @@ const scrollToTarget = () => {
             Experience the <span>power</span> of <span>flowers</span>
           </motion.h2>
         </div>
-          <button onClick={scrollToTarget}>Shop now <motion.span
-           
-        style={arrowStyle}
-        transition={bounceTransition}
-        animate={{
-          y: ["40%", "-40%"],
-        }}>&darr;
-      </motion.span>
-      </button>
+        <button onClick={scrollToTarget}>Shop now <motion.span
+          style={arrowStyle}
+          transition={bounceTransition}
+          animate={{y: ["40%", "-40%"]}}>
+          &darr;</motion.span>
+        </button>
       </Hero>
       <ScrollTarget id='scrolltarget'></ScrollTarget>
       <ProductList>
@@ -70,13 +67,9 @@ const scrollToTarget = () => {
           <Product key={product._id} product={product}/>
         )}
       </ProductList>
-    </Main>
+    </main>
   )
 }
-
-const Main = styled.main`
-  /* height: 3000px; */
-`
 
 const Hero = styled.div `
   background-image: url(../src/assets/heropicture.jpg);
@@ -90,6 +83,7 @@ const Hero = styled.div `
     background-color: black;
     opacity: 0.4;
   }
+
   #h2-wrapper {
     width: 100vw;
     top: 300px;
@@ -100,14 +94,17 @@ const Hero = styled.div `
     text-align: center;
     color: white;
     font-size: 3.4rem;
+
     span:first-child {
       font-family: italiana;
     }
+
     span:last-child {
       font-family: italianno;
       font-size: 4.5rem;
     }
   }
+
   button {
     all: unset;
     background-color: #E3D5CA;
@@ -130,7 +127,7 @@ const ScrollTarget = styled.div`
 `
 
 const ProductList = styled.section`
-  margin-top: 50px;
+  margin: 50px 50px 0 50px;
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 3%;
