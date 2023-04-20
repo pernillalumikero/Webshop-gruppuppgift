@@ -5,14 +5,13 @@ import { Outlet} from 'react-router-dom'
 import { useState } from 'react'
 
 const Root = () => {
+  
   const[cart, setCart] = useState([]);
 
   return (
     <div>
       <Header cart={cart} setCart={setCart}/>
-      {/* <section> */}
         <Outlet context={[cart, setCart]} />
-      {/* </section> */}
       <Footer />
     </div>
   )

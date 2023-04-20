@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    // errorElement: <ErrorPage />,
+
     children: [
       {
         path: "/",
@@ -24,14 +24,6 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <Product />,
       },
-      // {
-      //   path: "/about",
-      //   element: <About />,
-      // },
-      // {
-      //   path: "/update-pun/:id",
-      //   element: <Contact />,
-      // },
       {
         path: "/admin",
         element: <ManageProducts />
