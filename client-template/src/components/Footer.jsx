@@ -50,7 +50,6 @@ const Foot = styled.footer`
       padding: 7px;
       margin-right: 10px;
       width: 200px;
-
     }
 
     #logo {

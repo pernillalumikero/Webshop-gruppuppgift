@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useNavigate, Link } from 'react-router-dom'
 import { Button, Title } from '../../styling'
+import Form from '../../components/Form'
 
 const CreateProduct = () => {
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    console.log(JSON.stringify(newProduct))
     e.preventDefault();
     try {
       console.log(newProduct)
@@ -19,7 +19,6 @@ const CreateProduct = () => {
           },
           body: JSON.stringify(newProduct)
       })
-      
       navigate("/admin")
     } catch(error) {
       console.log(error)
@@ -35,18 +34,6 @@ const CreateProduct = () => {
     image:""
   });
 
-  const handleChange = (e) => {
-    e.preventDefault;
-    let name = e.target.name;
-    let value = e.target.value;
-    let newObject = {
-      ...newProduct,
-      [name]: value
-    }
-    setNewProduct(newObject)
-    console.log(newProduct)
-  } 
-
   return (
     <Main>
       <div id="wrapper">
@@ -54,26 +41,8 @@ const CreateProduct = () => {
         <Title>Create Product</Title>
         <div id="fake"></div>
       </div>
-        <Form onSubmit={handleSubmit}>
-          <label htmlFor='title'>Title</label>
-          <input type="text" name="title" value={newProduct.title} onChange={handleChange} />
-          <label htmlFor="price">Price</label>
-          <input type="number" name="price" value={newProduct.price} onChange={handleChange} />
-          <label htmlFor="stock">Stock</label>
-          <input type="number" name="stock" value={newProduct.stock} onChange={handleChange}/>
-          <label htmlFor="category">Category</label>
-          <select name="category" value={newProduct.category} onChange={handleChange}>
-            <option value="spring">Spring</option>
-            <option value="summer">Summer</option>
-            <option value="winter">Winter</option>
-            <option value="autumn">Autumn</option>
-          </select>
-          <label htmlFor="description">Description</label>
-          <textarea name="description" id="" cols="30" rows="10" value={newProduct.description} onChange={handleChange}></textarea>
-          <label htmlFor="picture">Image URL</label>
-          <input type="text" name="image" value={newProduct.image} onChange={handleChange}/>
-          <Submit $primary type="submit" value="Create" />
-        </Form>
+      <Form handleSubmit={handleSubmit} />
+        
     </Main>
   )
 }
@@ -101,7 +70,7 @@ const Submit = styled.input `
   text-align: center;
   width: 30%;
   margin: 30px auto;
-  background: #630436;
+  background: var(--primary-color);
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -110,7 +79,7 @@ const Submit = styled.input `
 `
 
 const Form = styled.form `
-  margin: 20px auto;
+  margin: 0 auto;
   width: 50%;
   display: flex;
   flex-flow: column nowrap;

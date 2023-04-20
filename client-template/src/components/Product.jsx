@@ -7,26 +7,20 @@ import { Button } from '../styling'
 const Product = ({product}) => {
   const [cart, setCart] = useOutletContext();
 
-
   const addProductToCart = (product) => {
-    console.log(product);
     const index = cart.findIndex((item) => item.product._id === product._id);
-    console.log(index);
 
     if (index === -1) {
       setCart([...cart, {product, quantity: 1}])
-      console.log(cart)
     } else {
       increaseQuantity(cart[index]);
     }
   }
 
   const increaseQuantity = (product) => {
-    console.log(product)
     const index = cart.findIndex((item) => item.product._id === product.product._id);
-    console.log(index)
+
     const newCartItems = [...cart];
-    console.log(newCartItems)
     newCartItems[index].quantity++;
     setCart(newCartItems);
   };
@@ -51,14 +45,11 @@ const Article = styled.article`
   width: 20vw;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background-color: white;
+  
     img {
       width: 100%;
       height: 300px;
       object-fit: cover;
-    }
-
-    a {
-      text-decoration: none;
     }
 
     p {

@@ -3,21 +3,19 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useState } from 'react'
 
-
-
 const Nav = ({handleCartClick, cart}) => {
 
   const [quantity, setQuantity] = useState(0)
+
   const displayQuantity = () => {
       let sum = 0;
       cart.map(item => {
-        let newQuantity = item.quantity;
-        sum+=newQuantity
+        sum+=item.quantity
       })
       setQuantity(sum)
   }
 
-  useEffect (()=> {displayQuantity()},[quantity, cart])
+  useEffect (() => {displayQuantity()},[quantity, cart])
 
   return (
     <Navigation>
@@ -45,66 +43,60 @@ const Navigation = styled.nav`
   flex-flow: row nowrap;
   gap: 30px;
   align-items: center;
-
   
     img {
       height: 40px;
     }
-  
 
-  section {
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    background-color: white;
-  }
-  div {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 30px;
-    margin: 0 0 0 auto;
+    div {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 30px;
+      margin: 0 0 0 auto;
 
-    #shop-quantity {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background-color: var(--secondary-color);
-      color: white;
-      font-weight: bolder;
-      font-size: 10px;
-      position: absolute;
-      margin-left: 120px;
-      margin-top: -5px;
-    }
-
-    .small {
-      padding-left: 5px;
-    }
-    .big {
-      padding-left: 3px;
-    }
-  }
-
-  a {
-
-    color: black;
-    text-transform: uppercase;
-    font-family: jost;
-    text-decoration: none;
-      #user {
-        height: 25px;
+      #shop-quantity {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: var(--secondary-color);
+        color: white;
+        font-weight: bolder;
+        font-size: 10px;
         position: absolute;
+        margin-left: 120px;
+        margin-top: -5px;
       }
-  }
 
-  button {
-    all: unset;
-    cursor: pointer;
-    width: 30px;
-    img {
-        height: 20px;
+      .small {
+        padding-left: 5px;
       }
-  }
+
+      .big {
+        padding-left: 3px;
+      }
+    } 
+
+    a {
+      color: black;
+      text-transform: uppercase;
+      font-family: jost;
+      text-decoration: none;
+
+        #user {
+          height: 25px;
+          position: absolute;
+        }
+    }
+
+    button {
+      all: unset;
+      cursor: pointer;
+      width: 30px;
+      
+      img {
+          height: 20px;
+        }
+    }
 
   .hover-underline {
     position: relative;
@@ -128,7 +120,6 @@ const Navigation = styled.nav`
     transform: scaleX(1);
     transform-origin: center;
   }
- 
 `
 
 export default Nav
