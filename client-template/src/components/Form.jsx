@@ -16,11 +16,11 @@ const Form = ({handleSubmit, newProduct, setNewProduct, btnName}) => {
   return (
     <FormStyling onSubmit={handleSubmit}>
       <label htmlFor='title'>Title</label>
-      <input type="text" name="title" value={newProduct.title} onChange={handleChange} />
+      <input type="text" name="title" required value={newProduct.title} onChange={handleChange} />
       <label htmlFor="price">Price</label>
-      <input type="number" name="price" value={newProduct.price} onChange={handleChange} />
+      <input type="number" name="price" required value={newProduct.price} onChange={handleChange} />
       <label htmlFor="stock">Stock</label>
-      <input type="number" name="stock" value={newProduct.stock} onChange={handleChange}/>
+      <input type="number" name="stock" required value={newProduct.stock} onChange={handleChange}/>
       <label htmlFor="category">Category</label>
       <select name="category" value={newProduct.category} onChange={handleChange}>
         <option value="spring">Spring</option>
@@ -29,7 +29,7 @@ const Form = ({handleSubmit, newProduct, setNewProduct, btnName}) => {
         <option value="autumn">Autumn</option>
       </select>
       <label htmlFor="description">Description</label>
-      <textarea name="description" id="" cols="30" rows="10" value={newProduct.description} onChange={handleChange}></textarea>
+      <textarea name="description" required cols="30" rows="10" value={newProduct.description} onChange={handleChange}></textarea>
       <label htmlFor="picture">Image URL</label>
       <input type="text" name="image" value={newProduct.image} onChange={handleChange}/>
       <Submit $primary type="submit" value={btnName} />
